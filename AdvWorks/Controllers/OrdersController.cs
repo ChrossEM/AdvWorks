@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AdvWorks.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AdvWorks.Models
 {
@@ -27,6 +28,7 @@ namespace AdvWorks.Models
         }
 
         // GET: Orders/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Order == null)
@@ -45,6 +47,7 @@ namespace AdvWorks.Models
         }
 
         // GET: Orders/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -67,6 +70,7 @@ namespace AdvWorks.Models
         }
 
         // GET: Orders/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Order == null)
